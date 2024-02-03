@@ -1,8 +1,5 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+using Tabuleiro;
 
 namespace console_chess
 {
@@ -10,6 +7,9 @@ namespace console_chess
     {
         static void Main(string[] args)
         {
+            Posicao posicao = new Posicao(3, 4);
+
+            Console.WriteLine(posicao);
         }
     }
 }
