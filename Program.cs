@@ -7,9 +7,11 @@ namespace console_chess
     {
         static void Main(string[] args)
         {
-            Posicao posicao = new Posicao(3, 4);
+            //Posicao posicao = new Posicao(3, 4);
+            Tabuleiro.Tabuleiro tabuleiro = new Tabuleiro.Tabuleiro(8, 8);
 
-            Console.WriteLine(posicao);
+            //Console.WriteLine(posicao);
+            Console.ReadLine();
         }
     }
 }
