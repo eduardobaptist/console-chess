@@ -10,6 +10,8 @@ namespace console_chess
             //Posicao posicao = new Posicao(3, 4);
             Tabuleiro.Tabuleiro tabuleiro = new Tabuleiro.Tabuleiro(8, 8);
 
+            Tela.imprimeTabuleiro(new Tabuleiro.Tabuleiro(8, 8));
+
             //Console.WriteLine(posicao);
             Console.ReadLine();
         }
