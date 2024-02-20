@@ -15,15 +15,17 @@ namespace console_chess
                     if (tabuleiro.GetPeca(i, j) == null)
                     {
                         Console.Write("- ");
-                    } else
+                    }
+                    else
                     {
                         Console.Write(tabuleiro.GetPeca(i, j));
                     }
-                    
+
                 }
 
                 Console.WriteLine();
             }
+
         }
     }
 }
