@@ -1,5 +1,6 @@
 ﻿using System;
 using Tabuleiro;
+using Xadrez;
 
 namespace console_chess
 {
@@ -9,13 +10,13 @@ namespace console_chess
         {
             for (int i = 0; i < tabuleiro.NumLinhas; i++)
             {
-                Console.Write($"{8 - i} ");
+                Console.Write($" {8 - i} ");
                 for (int j = 0; j < tabuleiro.NumColunas; j++)
                 {
 
                     if (tabuleiro.GetPeca(i, j) == null)
                     {
-                        Console.Write("- ");
+                        Console.Write("[ ]");
                     }
                     else
                     {
@@ -26,20 +27,27 @@ namespace console_chess
                 }
                 Console.WriteLine();
             }
-            Console.WriteLine($"  A B C D E F G H");
+            Console.WriteLine($"    A  B  C  D  E  F  G  H");
         }
 
         public static void ImprimirPeca(Peca peca)
         {
             if (peca.Cor == Cor.Preto)
             {
-                Console.ForegroundColor = ConsoleColor.DarkMagenta;
-                Console.Write(peca);
+                Console.ForegroundColor = ConsoleColor.Yellow;
+                Console.Write($"[{peca}]");
                 Console.ForegroundColor = ConsoleColor.White;
             } else
             {
-                Console.Write(peca);
+                Console.Write($"[{peca}]");
             }
+        }
+        
+        public static PosicaoXadrez LerPosicaoXadrez(string posicao)
+        {
+            char coluna = posicao[0];
+            int linha = int.Parse(posicao[1].ToString());
+            return new PosicaoXadrez(coluna, linha);
         }
     }
 }

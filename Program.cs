@@ -10,16 +10,24 @@ namespace console_chess
         {
             try
             {
-                Tabuleiro.Tabuleiro tabuleiro = new Tabuleiro.Tabuleiro(8, 8);
+                Partida partida = new Partida();
 
-                tabuleiro.ColocarPeca(new Torre(Cor.Preto, tabuleiro), new Posicao(0, 0));
-                tabuleiro.ColocarPeca(new Torre(Cor.Preto, tabuleiro), new Posicao(1, 3));
-                tabuleiro.ColocarPeca(new Rei(Cor.Preto, tabuleiro), new Posicao(1, 4));
-                tabuleiro.ColocarPeca(new Rei(Cor.Branco, tabuleiro), new Posicao(1, 5));
-                tabuleiro.ColocarPeca(new Rei(Cor.Preto, tabuleiro), new Posicao(1, 6));
+                while (!partida.PartidaTerminada)
+                {
+                    Console.Clear();
 
-                Tela.ImprimirTabuleiro(tabuleiro);
+                    Tela.ImprimirTabuleiro(partida.Tabuleiro);
 
+                    Console.Write("Insira a posição de origem: ");
+                    Posicao origem = Tela.LerPosicaoXadrez(Console.ReadLine().ToLower()).ToPosicao();
+
+                    Console.Write("Insira a posição de destino: ");
+                    Posicao destino = Tela.LerPosicaoXadrez(Console.ReadLine().ToLower()).ToPosicao();
+
+                    partida.ExecutarMovimento(origem, destino);
+
+                    Tela.ImprimirTabuleiro(partida.Tabuleiro);
+                }
                 //PosicaoXadrez posicaoXadrez = new PosicaoXadrez('c', 7);
                 //Console.WriteLine(posicaoXadrez.ToPosicao());
             }

@@ -1,7 +1,5 @@
 ﻿using System;
 
-//Classe criada como tabuleiro "genérico", não apenas para xadrez (8x8)
-
 namespace Tabuleiro
 {
     public class Tabuleiro
@@ -35,6 +33,21 @@ namespace Tabuleiro
             }
             Pecas[posicao.Linha, posicao.Coluna] = peca;
             peca.Posicao = posicao;
+        }
+
+        public Peca RetirarPeca(Posicao posicao)
+        {
+            if (GetPeca(posicao) != null)
+            {
+                Peca peca = GetPeca(posicao);
+
+                peca.Posicao = null;
+                Pecas[posicao.Linha, posicao.Coluna] = null;
+
+                return peca;
+            }
+            
+            return null;
         }
 
         public bool ExistePeca(Posicao posicao)
