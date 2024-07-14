@@ -29,7 +29,7 @@ namespace Tabuleiro
         {
             if (ExistePeca(posicao))
             {
-                throw new TabuleiroException("Já existe uma peça nessa posição");
+                throw new TabuleiroException("Já existe uma peça nessa posição.");
             }
             Pecas[posicao.Linha, posicao.Coluna] = peca;
             peca.Posicao = posicao;
@@ -37,10 +37,10 @@ namespace Tabuleiro
 
         public Peca RetirarPeca(Posicao posicao)
         {
-            if (GetPeca(posicao) != null)
-            {
-                Peca peca = GetPeca(posicao);
+            Peca peca = GetPeca(posicao);
 
+            if (peca != null)
+            {
                 peca.Posicao = null;
                 Pecas[posicao.Linha, posicao.Coluna] = null;
 

@@ -4,7 +4,7 @@ using Xadrez;
 
 namespace console_chess
 {
-    internal class Program
+    public class Program
     {
         static void Main(string[] args)
         {
