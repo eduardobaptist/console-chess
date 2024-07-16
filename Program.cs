@@ -21,6 +21,10 @@ namespace console_chess
                     Console.Write("Insira a posição de origem: ");
                     Posicao origem = Tela.LerPosicaoXadrez(Console.ReadLine().ToLower()).ToPosicao();
 
+                    Console.Clear();
+                    Tela.ImprimirTabuleiro(partida.Tabuleiro, partida.Tabuleiro.GetPeca(origem).GetMovimentosPossiveis());
+
+                    Console.WriteLine();
                     Console.Write("Insira a posição de destino: ");
                     Posicao destino = Tela.LerPosicaoXadrez(Console.ReadLine().ToLower()).ToPosicao();
 

@@ -13,17 +13,27 @@ namespace console_chess
                 Console.Write($" {8 - i} ");
                 for (int j = 0; j < tabuleiro.NumColunas; j++)
                 {
+                    ImprimirPeca(tabuleiro.GetPeca(i, j));
+                }
+                Console.WriteLine();
+            }
+            Console.WriteLine($"    A  B  C  D  E  F  G  H");
+        }
 
-                    if (tabuleiro.GetPeca(i, j) == null)
-                    {
-                        Console.Write("[ ]");
-                    }
-                    else
-                    {
-                        ImprimirPeca(tabuleiro.GetPeca(i, j));
-                        
-                    }
-
+        public static void ImprimirTabuleiro(Tabuleiro.Tabuleiro tabuleiro, bool[,] matrizPossivel)
+        {
+            for (int i = 0; i < tabuleiro.NumLinhas; i++)
+            {
+                Console.Write($" {8 - i} ");
+                for (int j = 0; j < tabuleiro.NumColunas; j++)
+                {
+                    Console.BackgroundColor = matrizPossivel[i, j] 
+                        ? ConsoleColor.DarkGray 
+                        : ConsoleColor.Black;
+                    
+                    ImprimirPeca(tabuleiro.GetPeca(i, j));
+                    
+                    Console.BackgroundColor = ConsoleColor.Black;
                 }
                 Console.WriteLine();
             }
@@ -32,15 +42,22 @@ namespace console_chess
 
         public static void ImprimirPeca(Peca peca)
         {
-            if (peca.Cor == Cor.Preto)
+            if (peca is null)
             {
-                Console.ForegroundColor = ConsoleColor.Yellow;
-                Console.Write($"[{peca}]");
-                Console.ForegroundColor = ConsoleColor.White;
-            } else
-            {
-                Console.Write($"[{peca}]");
+                Console.Write("[ ]");
             }
+            else { 
+                if (peca.Cor == Cor.Preto)
+                {
+                    Console.ForegroundColor = ConsoleColor.Yellow;
+                    Console.Write($"[{peca}]");
+                    Console.ForegroundColor = ConsoleColor.White;
+                } else
+                {
+                    Console.Write($"[{peca}]");
+                }
+            }
+
         }
         
         public static PosicaoXadrez LerPosicaoXadrez(string posicao)
